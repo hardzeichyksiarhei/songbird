@@ -1,4 +1,7 @@
 import React from 'react';
+
+import Header from './components/header/Header.jsx';
+
 import './App.scss';
 
 import levels from './data/birds';
@@ -31,8 +34,12 @@ class App extends React.Component {
   }
 
   render() {
+    const { score, currentLevelIndex, question, answers, selectedAnswer, isSuccess, isSounds, isGameOver } = this.state;
+
     return (
-      <div className="App"></div>
+      <div className="container">
+        <Header levels={levels} currentLevelIndex={currentLevelIndex} score={score} />
+      </div>
     );
   }
 }
