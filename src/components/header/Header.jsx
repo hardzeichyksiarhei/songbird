@@ -11,13 +11,13 @@ class Header extends React.Component {
     const { levels, currentLevelIndex, score } = this.props;
 
     return (
-      <header class="header">
-        <div class="top-panel">
-          <div class="logo">Song<span>Bird</span></div>
-          <span class="score">Score: { score }</span>
+      <header className="header">
+        <div className="top-panel">
+          <div className="logo">Song<span>Bird</span></div>
+          <span className="score">Score: { score }</span>
         </div>
-        <ul class="questions-list">
-          {levels.map((level, index) => <li className={`questions-list__item ${currentLevelIndex === index ? 'questions-list__item--active' : ''}`}>{ level.label }</li>)}
+        <ul className="questions-list">
+          {levels.map((level, index) => <li className={`questions-list__item ${currentLevelIndex === index ? 'questions-list__item--active' : ''}`} key={level.id}>{level.label}</li>)}
         </ul>
       </header>
     );

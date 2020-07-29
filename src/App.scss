@@ -4,6 +4,8 @@ $rhap_theme-color: var(--main-color);
 $rhap_background-color: transparent;
 $rhap_time-color: #fff;
 
+@import '~react-h5-audio-player/src/styles.scss';
+
 .mb-1 {
     margin-bottom: 10px;
 }
@@ -24,4 +26,23 @@ $rhap_time-color: #fff;
     max-width: 1140px;
     margin: 0 auto;
     padding: 0 15px;
+}
+
+.content {
+    margin-bottom: 30px;
+}
+
+.panel {
+    padding: 25px;
+    border-radius: 5px;
+    background-color: var(--bg-panel-color);
+}
+
+.audio-player {
+    box-shadow: none;
+    padding-left: 0;
+    padding-right: 0;
+    &:focus {
+        outline: none;
+    }
 }
