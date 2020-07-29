@@ -1,8 +1,8 @@
 
 /* Variables */
 :root {
-  --main-color: SteelBlue;
-  --main-active-color: rgb(55, 101, 139); 
+  --main-color: #4682b4;
+  --main-active-color: #37658b; 
   --bg-color: #222;
   --bg-panel-color: #303030;
 }

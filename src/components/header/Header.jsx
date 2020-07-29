@@ -13,7 +13,7 @@ class Header extends React.Component {
     return (
       <header className="header">
         <div className="top-panel">
-          <div className="logo">Song<span>Bird</span></div>
+          <div className="logo"><img className="logo__img" src="./logo.svg" alt="SongBird"/>Song<span>Bird</span></div>
           <span className="score">Score: { score }</span>
         </div>
         <ul className="questions-list">

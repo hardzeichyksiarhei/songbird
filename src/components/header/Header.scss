@@ -10,10 +10,17 @@
 }
 
 .logo {
+    display: flex;
+    align-items: center;
     font-family: 'Architects Daughter', cursive;
     color: #fff;
     font-size: 38px;
     line-height: 1;
+    &__img {
+        width: 60px;
+        height: auto;
+        margin-right: 5px;
+    }
     span {
         color: var(--main-color);
         font-weight: 600;
