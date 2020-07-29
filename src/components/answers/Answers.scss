@@ -1,0 +1,39 @@
+.answers-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: var(--bg-panel-color);
+    &__item {
+        padding: 15px 20px;
+        font-size: 16px;
+        border-bottom: 1px solid #444;
+        color: #fff;
+        cursor: pointer;
+        &:hover {
+            background-color: #444;
+        }
+        &:last-child {
+            margin-bottom: none;
+        }
+        .mark {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: #444;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        &--error {
+            .mark {
+                background-color: red;
+            }
+        }
+        &--success {
+            .mark {
+                background-color: green;
+            }
+        }
+    }
+}

@@ -2,6 +2,7 @@ import React from 'react';
 
 import Header from './components/header/Header.jsx';
 import Question from './components/question/Question.jsx';
+import Answers from './components/answers/Answers.jsx';
 
 import './App.scss';
 
@@ -40,6 +41,11 @@ class App extends React.Component {
     this.setAnswersAndQuestion()
   }
 
+  stopAudio(audio) {
+    audio.pause();
+    audio.currentTime = 0;
+  }
+
   setAnswersAndQuestion(level = this.levels[0], levelIndex = 0, args = {}) {
     this.setState({
       ...this.state,
@@ -51,12 +57,43 @@ class App extends React.Component {
     });
   }
 
+  handlerSelectAnswer = (selectedAnswer) => {
+    this.stopAudio(this.audioError);
+    this.stopAudio(this.audioSuccess);
+
+    const { answers, question, isSounds, isSuccess, score } = this.state;
+
+    if (isSuccess === true) {
+      this.setState({
+        ...this.state,
+        selectedAnswer: selectedAnswer
+      });
+      return;
+    }
+
+    const _score = {};
+    if (selectedAnswer.id !== question.id) { this.errorsCount += 1; this.audioError.play(); }
+    else { _score.score = score + ( 5 - this.errorsCount ); this.audioSuccess.play(); }
+    
+    this.setState({
+      ...this.state,
+      answers: answers.map(answer => answer.id === selectedAnswer.id ? { ...answer, selected: true } : answer),
+      selectedAnswer: selectedAnswer,
+      isSuccess: selectedAnswer.id === question.id && isSuccess === false,
+      ..._score
+    });
+    
+  }
+
   render() {
     const { score, currentLevelIndex, question, answers, selectedAnswer, isSuccess, isSounds, isGameOver } = this.state;
 
     let content = (
       <div className="content">
         <div className="panel mb-3"><Question question={question} selectAnswer={selectedAnswer} isSuccess={isSuccess} /></div>
+        <div className="mb-3 grid">
+          <Answers question={question} answers={answers} isSounds={isSounds} onSelectAnswer={this.handlerSelectAnswer} />
+        </div>
       </div>
     );
 
