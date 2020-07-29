@@ -86,6 +86,27 @@ class App extends React.Component {
     
   }
 
+  toNextLevel = () => {
+    this.errorsCount = 0;
+
+    const { currentLevelIndex } = this.state;
+    if (currentLevelIndex === this.maxLevel) {
+      this.setState({
+        ...this.state,
+        isGameOver: true
+      });
+      return;
+    }
+
+    let levelIndex = currentLevelIndex + 1;
+    let level = this.levels[levelIndex];
+
+    this.setAnswersAndQuestion(level, levelIndex, {
+      selectedAnswer: null,
+      isSuccess: false
+    });
+  }
+
   render() {
     const { score, currentLevelIndex, question, answers, selectedAnswer, isSuccess, isSounds, isGameOver } = this.state;
 
@@ -96,6 +117,7 @@ class App extends React.Component {
           <Answers question={question} answers={answers} isSounds={isSounds} onSelectAnswer={this.handlerSelectAnswer} />
           <Description answer={selectedAnswer} />
         </div>
+        <button className="next-level-btn" onClick={this.toNextLevel} disabled={!isSuccess}>Next Level</button>
       </div>
     );
 

@@ -45,6 +45,25 @@ $rhap_time-color: #fff;
     gap: 30px;
 }
 
+.next-level-btn {
+    display: block;
+    width: 100%;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: var(--main-color);
+    padding: 10px 25px;
+    color: #fff;
+    cursor: pointer;
+    transition: .2s all ease;
+    &:hover {
+        background-color: var(--main-active-color);
+    }
+    &:disabled {
+        background-color: var(--bg-panel-color);
+        cursor: not-allowed;
+    }
+}
+
 .audio-player {
     box-shadow: none;
     padding-left: 0;
