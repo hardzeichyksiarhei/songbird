@@ -38,6 +38,13 @@ $rhap_time-color: #fff;
     background-color: var(--bg-panel-color);
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    gap: 30px;
+}
+
 .audio-player {
     box-shadow: none;
     padding-left: 0;

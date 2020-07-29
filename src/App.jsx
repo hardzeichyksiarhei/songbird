@@ -3,6 +3,7 @@ import React from 'react';
 import Header from './components/header/Header.jsx';
 import Question from './components/question/Question.jsx';
 import Answers from './components/answers/Answers.jsx';
+import Description from './components/description/Description.jsx';
 
 import './App.scss';
 
@@ -93,6 +94,7 @@ class App extends React.Component {
         <div className="panel mb-3"><Question question={question} selectAnswer={selectedAnswer} isSuccess={isSuccess} /></div>
         <div className="mb-3 grid">
           <Answers question={question} answers={answers} isSounds={isSounds} onSelectAnswer={this.handlerSelectAnswer} />
+          <Description answer={selectedAnswer} />
         </div>
       </div>
     );
