@@ -4,6 +4,7 @@ import Header from './components/header/Header.jsx';
 import Question from './components/question/Question.jsx';
 import Answers from './components/answers/Answers.jsx';
 import Description from './components/description/Description.jsx';
+import Gameover from './components/gameover/Gameover.jsx';
 
 import './App.scss';
 
@@ -86,6 +87,17 @@ class App extends React.Component {
     
   }
 
+  restart = () => {
+    const level = this.levels[0];
+    const levelIndex = 0;
+    this.setAnswersAndQuestion(level, levelIndex, {
+      selectedAnswer: null,
+      isSuccess: false,
+      score: 0,
+      isGameOver: false
+    })
+  }
+
   toNextLevel = () => {
     this.errorsCount = 0;
 
@@ -120,6 +132,16 @@ class App extends React.Component {
         <button className="next-level-btn" onClick={this.toNextLevel} disabled={!isSuccess}>Next Level</button>
       </div>
     );
+
+    if (isGameOver) {
+      content = (
+        <div className="container">
+          <div className="content">
+            <Gameover score={ score } maxScore={ 5 * this.levels.length } restart={this.restart} />
+          </div>
+        </div>
+      )
+    };
 
     return (
       <div className="container">

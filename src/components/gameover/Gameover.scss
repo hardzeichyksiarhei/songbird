@@ -1,0 +1,35 @@
+.gameover {
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: var(--bg-panel-color);
+    padding: 25px;
+    color: #fff;
+    &__title {
+        font-size: 52px;
+        font-weight: normal;
+        text-align: center;
+    }
+    &__stats {
+        text-align: center;
+        font-size: 18px;
+        font-weight: 300;
+        margin-bottom: 100px;
+        span {
+            font-weight: bold;
+        }
+    }
+    &__reset {
+        width: 100%;
+        background-color: var(--main-color);
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        line-height: 1;
+        padding: 15px 10px;
+        cursor: pointer;
+        transition: .2s all ease;
+        &:hover {
+            background-color: var(--main-active-color);
+        }
+    }
+}
