@@ -21,7 +21,7 @@ class Description extends React.Component {
 
         return (
             <div className="description">
-                {!answer ? (<div className="instruction"><span>Послушайте плеер.</span><span>Выберите птицу из списка</span></div>) : (
+                {!answer ? (<div className="instruction"><span>Послушайте плеер.</span><span>Выберите птицу из списка.</span></div>) : (
                     <div className="bird-info">
                         <img src={answer.image} alt={answer.species} className="bird-info__img" />
                         <div className="bird-info__meta">

@@ -35,6 +35,7 @@
     list-style-type: none;
     border-radius: 5px;
     background-color: var(--main-color);
+    overflow: hidden;
     &__item {
         flex-grow: 1;
         height: 40px;
