@@ -74,8 +74,8 @@ class App extends React.Component {
     }
 
     const _score = {};
-    if (selectedAnswer.id !== question.id) { this.errorsCount += 1; this.audioError.play(); }
-    else { _score.score = score + ( 5 - this.errorsCount ); this.audioSuccess.play(); }
+    if (selectedAnswer.id !== question.id) { this.errorsCount += 1; isSounds && this.audioError.play(); }
+    else { _score.score = score + ( 5 - this.errorsCount ); isSounds && this.audioSuccess.play(); }
     
     this.setState({
       ...this.state,
@@ -95,6 +95,13 @@ class App extends React.Component {
       isSuccess: false,
       score: 0,
       isGameOver: false
+    })
+  }
+
+  handlerChangeIsSounds = (isSounds) => {
+    this.setState({
+      ...this.state,
+      isSounds
     })
   }
 
@@ -126,7 +133,7 @@ class App extends React.Component {
       <div className="content">
         <div className="panel mb-3"><Question question={question} selectAnswer={selectedAnswer} isSuccess={isSuccess} /></div>
         <div className="mb-3 grid">
-          <Answers question={question} answers={answers} isSounds={isSounds} onSelectAnswer={this.handlerSelectAnswer} />
+          <Answers question={question} answers={answers} isSounds={isSounds} onChangeIsSounds={this.handlerChangeIsSounds} onSelectAnswer={this.handlerSelectAnswer} />
           <Description answer={selectedAnswer} />
         </div>
         <button className="next-level-btn" onClick={this.toNextLevel} disabled={!isSuccess}>Next Level</button>

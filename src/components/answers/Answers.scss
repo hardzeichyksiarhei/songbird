@@ -1,3 +1,14 @@
+.toggle-sounds {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    span {
+        color: #fff;
+        margin-left: 10px;
+        line-height: 1;
+    }
+}
+
 .answers-list {
     margin: 0;
     padding: 0;
