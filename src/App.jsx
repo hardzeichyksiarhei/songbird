@@ -134,7 +134,7 @@ class App extends React.Component {
 
     let content = (
       <div className="content">
-        <div className="panel mb-3"><Question question={question} selectAnswer={selectedAnswer} isSuccess={isSuccess} /></div>
+        <div className="mb-3"><Question question={question} selectAnswer={selectedAnswer} isSuccess={isSuccess} /></div>
         <div className="mb-3 grid">
           <Answers question={question} answers={answers} isSounds={isSounds} onChangeIsSounds={this.handlerChangeIsSounds} onSelectAnswer={this.handlerSelectAnswer} />
           <Description answer={selectedAnswer} />

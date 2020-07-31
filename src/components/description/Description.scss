@@ -9,6 +9,22 @@
 .instruction {
     display: flex;
     flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    li {
+        margin-bottom: 20px;
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+        span {
+            display: block;
+            margin-bottom: 10px;
+        }
+    }
+    img {
+        width: 100%;
+    }
 }
 
 .bird-info {

@@ -7,7 +7,18 @@ const Description = props => {
     const { answer } = props;
 
     if (!answer) return (
-        <div className="description"><div className="instruction"><span>Послушайте плеер.</span><span>Выберите птицу из списка.</span></div></div>
+        <div className="description">
+            <ul className="instruction">
+                <li>
+                    <span>1. Послушайте плеер.</span>
+                    <img src="./player.png" alt="Player"/>
+                </li>
+                <li>
+                    <span>2. Выберите птицу из списка.</span>
+                    <img src="./answers.png" alt="answers"/>
+                </li>
+            </ul>
+        </div>
     );
 
     return (
