@@ -10,10 +10,10 @@ class Question extends React.Component {
         this.player = React.createRef()
     }
 
-    componentWillUpdate(props) {
+    componentDidUpdate() {
         const audio = this.player?.current?.audio.current;
 
-        if (audio && audio.src && props.isSuccess) audio.pause();
+        if (audio && audio.src && this.props.isSuccess) audio.pause();
     }
     
     render() {
