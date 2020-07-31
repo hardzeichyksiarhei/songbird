@@ -2,13 +2,8 @@ import React from 'react';
 
 import './Header.scss';
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    const { levels, currentLevelIndex, score } = this.props;
+const Header = props => {
+  const { levels, currentLevelIndex, score } = props;
 
     return (
       <header className="header">
@@ -21,7 +16,6 @@ class Header extends React.Component {
         </ul>
       </header>
     );
-  }
 }
 
 export default Header;

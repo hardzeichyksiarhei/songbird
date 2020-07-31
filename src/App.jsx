@@ -49,9 +49,12 @@ class App extends React.Component {
   }
 
   setAnswersAndQuestion(level = this.levels[0], levelIndex = 0, args = {}) {
+    const question = level.answers[Math.floor(Math.random() * level.answers.length)];
+    console.log(`Level: ${level.label} - Answer: ${question.name}`);
+
     this.setState({
       ...this.state,
-      question: level.answers[Math.floor(Math.random() * level.answers.length)],
+      question,
       answers: level.answers.map(answer => ({ ...answer, selected: false })),
       currentLevel: level,
       currentLevelIndex: levelIndex,
@@ -142,10 +145,8 @@ class App extends React.Component {
 
     if (isGameOver) {
       content = (
-        <div className="container">
-          <div className="content">
-            <Gameover score={ score } maxScore={ 5 * this.levels.length } restart={this.restart} />
-          </div>
+        <div className="content">
+          <Gameover score={ score } maxScore={ 5 * this.levels.length } restart={this.restart} />
         </div>
       )
     };
