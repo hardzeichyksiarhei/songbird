@@ -58,3 +58,19 @@
         margin: 0;
     }
 }
+
+/* Media query */
+
+
+@media screen and (max-width: 576px) {
+    .bird-info {
+        grid-template-columns: 1fr;
+        &__img {
+            width: 100%;
+            height: auto;
+        }
+        &__description {
+            grid-column: auto;
+        }
+    }
+}
