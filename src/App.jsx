@@ -1,4 +1,7 @@
 import React from 'react';
+import { CSSTransition } from 'react-transition-group';
+
+import Loader from './components/loader/Loader';
 
 import Header from './components/header/Header.jsx';
 import Question from './components/question/Question.jsx';
@@ -8,7 +11,7 @@ import Gameover from './components/gameover/Gameover.jsx';
 
 import './App.scss';
 
-import birds from './data/birds';
+import { API_URL } from './config';
 
 class App extends React.Component {
   constructor(props) {
@@ -23,6 +26,8 @@ class App extends React.Component {
     this.audioSuccess = new Audio();
 
     this.state = {
+      loading: true,
+
       currentLevelIndex: -1,
       currentLevel: null,
       question: null,
@@ -39,14 +44,16 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    const response = await fetch(`https://birds-nodejs-api.herokuapp.com/birds`);
+    const response = await fetch(`${API_URL}/birds`);
     const levels = await response.json();
     this.levels = levels;
     this.maxLevel = levels.length - 1;
 
     this.audioError.src = './songs/error.mp3';
     this.audioSuccess.src = './songs/success.mp3';
-    this.setAnswersAndQuestion()
+    this.setAnswersAndQuestion(0, {
+      loading: false
+    });
   }
 
   stopAudio(audio) {
@@ -133,9 +140,9 @@ class App extends React.Component {
   }
 
   render() {
-    const { score, currentLevelIndex, question, answers, selectedAnswer, isSuccess, isSounds, isGameOver } = this.state;
+    const { loading, score, currentLevelIndex, question, answers, selectedAnswer, isSuccess, isSounds, isGameOver } = this.state;
 
-    if (!this.levels) return <div className="preloader-wrapper"><div className="preloader">Loading...</div></div>;
+    if (loading) return <Loader />;
 
     let content = (
       <div className="content">
@@ -157,10 +164,18 @@ class App extends React.Component {
     };
 
     return (
-      <div className="container">
-        <Header levels={this.levels} currentLevelIndex={currentLevelIndex} score={score} />
-        { content }
-      </div>
+      <CSSTransition
+        unmountOnExit
+        in={!loading}
+        timeout={{ appear: 0, enter: 0, exit: 1000 }}
+        classNames='container'
+        appear
+      >
+        <div className="container">
+          <Header levels={this.levels} currentLevelIndex={currentLevelIndex} score={score} />
+          { content }
+        </div>
+      </CSSTransition>
     );
   }
 }

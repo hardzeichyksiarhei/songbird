@@ -215,6 +215,27 @@ $rhap_time-color: #fff;
 
 
 
+.container-appear {
+  opacity: 0;
+}
+
+.container-enter {
+  opacity: 0;
+}
+.container-enter-done {
+  opacity: 1;
+  transition: opacity 1000ms;
+}
+.container-exit {
+  opacity: 1;
+}
+.container-exit-done {
+  opacity: 0;
+  transition: opacity 1000ms;
+}
+
+
+
 /* Media query */
 
 @media screen and (max-width: 1200px) {
