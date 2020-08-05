@@ -44,7 +44,7 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    const levels = await levelsService.fetchLevels(3, 6);
+    const levels = await levelsService.fetchLevels(5, 6);
     this.levels = levels;
     this.maxLevel = levels.length - 1;
 
