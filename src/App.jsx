@@ -9,9 +9,9 @@ import Answers from './components/answers/Answers.jsx';
 import Description from './components/description/Description.jsx';
 import Gameover from './components/gameover/Gameover.jsx';
 
-import './App.scss';
+import levelsService from './services/levels.service';
 
-import { API_URL } from './config';
+import './App.scss';
 
 class App extends React.Component {
   constructor(props) {
@@ -44,8 +44,7 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    const response = await fetch(`${API_URL}/birds?levels=10&answers=6`);
-    const levels = await response.json();
+    const levels = await levelsService.fetchLevels(5, 6);
     this.levels = levels;
     this.maxLevel = levels.length - 1;
 
