@@ -8,14 +8,15 @@ import Gameover from './components/gameover/Gameover.jsx';
 
 import './App.scss';
 
-import levels from './data/birds';
+import birds from './data/birds';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.levels = levels;
-    this.maxLevel = this.levels.length - 1;
+    this.birds = null;
+    this.levels = null;
+    this.maxLevel = 0;
     this.errorsCount = 0;
 
     this.audioError = new Audio();
@@ -37,7 +38,12 @@ class App extends React.Component {
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    const response = await fetch(`https://birds-nodejs-api.herokuapp.com/birds`);
+    const levels = await response.json();
+    this.levels = levels;
+    this.maxLevel = levels.length - 1;
+
     this.audioError.src = './songs/error.mp3';
     this.audioSuccess.src = './songs/success.mp3';
     this.setAnswersAndQuestion()
@@ -48,7 +54,8 @@ class App extends React.Component {
     audio.currentTime = 0;
   }
 
-  setAnswersAndQuestion(level = this.levels[0], levelIndex = 0, args = {}) {
+  setAnswersAndQuestion(levelIndex = 0, args = {}) {
+    const level = this.levels[levelIndex];
     const question = level.answers[Math.floor(Math.random() * level.answers.length)];
     console.log(`Level: ${level.label} - Answer: ${question.name}`);
 
@@ -91,9 +98,7 @@ class App extends React.Component {
   }
 
   restart = () => {
-    const level = this.levels[0];
-    const levelIndex = 0;
-    this.setAnswersAndQuestion(level, levelIndex, {
+    this.setAnswersAndQuestion(0, {
       selectedAnswer: null,
       isSuccess: false,
       score: 0,
@@ -121,9 +126,7 @@ class App extends React.Component {
     }
 
     let levelIndex = currentLevelIndex + 1;
-    let level = this.levels[levelIndex];
-
-    this.setAnswersAndQuestion(level, levelIndex, {
+    this.setAnswersAndQuestion(levelIndex, {
       selectedAnswer: null,
       isSuccess: false
     });
@@ -131,6 +134,8 @@ class App extends React.Component {
 
   render() {
     const { score, currentLevelIndex, question, answers, selectedAnswer, isSuccess, isSounds, isGameOver } = this.state;
+
+    if (!this.levels) return <div className="preloader-wrapper"><div className="preloader">Loading...</div></div>;
 
     let content = (
       <div className="content">
@@ -153,7 +158,7 @@ class App extends React.Component {
 
     return (
       <div className="container">
-        <Header levels={levels} currentLevelIndex={currentLevelIndex} score={score} />
+        <Header levels={this.levels} currentLevelIndex={currentLevelIndex} score={score} />
         { content }
       </div>
     );
