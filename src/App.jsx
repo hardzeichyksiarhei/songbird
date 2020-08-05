@@ -44,7 +44,7 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    const response = await fetch(`${API_URL}/birds`);
+    const response = await fetch(`${API_URL}/birds?levels=10&answers=6`);
     const levels = await response.json();
     this.levels = levels;
     this.maxLevel = levels.length - 1;
