@@ -12,10 +12,10 @@
 .logo {
     display: flex;
     align-items: center;
-    font-family: 'Architects Daughter', cursive;
     color: #fff;
     font-size: 38px;
     line-height: 1;
+    font-weight: 300;
     &__img {
         width: 60px;
         height: auto;
@@ -23,7 +23,7 @@
     }
     span {
         color: var(--main-color);
-        font-weight: 600;
+        font-weight: 700;
         margin-left: 5px;
     }
 }
