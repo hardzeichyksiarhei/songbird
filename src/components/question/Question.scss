@@ -28,6 +28,26 @@
     }
 }
 
+.question .rhap_play-pause-button {
+    box-shadow: 0 0 0 rgba(var(--main-color-rgb), 0);
+    animation: pulse 2s infinite;
+    border-radius: 50%;
+}
+
+.question .rhap_play-pause-button:hover {
+    animation: none;
+}
+  
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(var(--main-color-rgb), 0.8);
+    }
+    100% {
+        box-shadow: 0 0 0 10px rgba(var(--main-color-rgb), 0);
+    }
+}
+
 @media screen and (max-width: 576px) {
     .question {
         flex-direction: column;

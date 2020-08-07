@@ -3,7 +3,8 @@
 /* Variables */
 :root {
   --main-color: #4682b4;
-  --main-active-color: #37658b; 
+  --main-active-color: #37658b;
+  --main-color-rgb: 70, 130, 180;
   --bg-color: #222;
   --bg-panel-color: #303030;
 }
