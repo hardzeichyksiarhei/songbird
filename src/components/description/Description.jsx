@@ -10,11 +10,11 @@ const Description = props => {
         <div className="description">
             <ul className="instruction">
                 <li>
-                    <span>1. Послушайте плеер.</span>
+                    <span>1. Listen to the player.</span>
                     <img src="./player.png" alt="Player"/>
                 </li>
                 <li>
-                    <span>2. Выберите птицу из списка.</span>
+                    <span>2. Select a bird from the list.</span>
                     <img src="./answers.png" alt="answers"/>
                 </li>
             </ul>
