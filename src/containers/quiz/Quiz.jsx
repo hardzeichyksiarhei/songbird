@@ -47,7 +47,7 @@ class Quiz extends React.Component {
   }
 
   setAnswersAndQuestion(args = {}) {
-    const level = this.props.levels[this.state.currentLevelIndex];
+    const level = this.props.levels[args.currentLevelIndex || this.state.currentLevelIndex];
     const question = level.answers[Math.floor(Math.random() * level.answers.length)];
     console.log(`Level: ${level.label} - Answer: ${question.name}`);
 
@@ -74,9 +74,9 @@ class Quiz extends React.Component {
       return;
     }
 
-    let score = 0;
+    let score = oldScore;
     if (selectedAnswer.id !== question.id) { this.errorsCount += 1; isSounds && this.audioError.play(); }
-    else { score = oldScore + (answers.length - 1) - this.errorsCount; isSounds && this.audioSuccess.play(); }
+    else { score += (answers.length - 1) - this.errorsCount; isSounds && this.audioSuccess.play(); }
     
     this.setState({
       ...this.state,
