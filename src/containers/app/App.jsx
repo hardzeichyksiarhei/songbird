@@ -3,6 +3,7 @@ import { CSSTransition } from 'react-transition-group';
 
 import Loader from '../../components/loader/Loader';
 import Quiz from './../quiz/Quiz.jsx';
+import QuizError from './../../components/quiz-error/QuizError'
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -18,9 +19,10 @@ class App extends React.Component {
   }
 
   render() {
-    const { isSounds, loading, levels } = this.props;
+    const { isSounds, loading, levels, error } = this.props;
 
     if (loading) return <Loader />;
+    
 
     let boundActions = bindActionCreators(actions, this.props.dispatch);
     return (
@@ -32,11 +34,11 @@ class App extends React.Component {
         appear
       >
         <div className="container">
-          <Quiz
+          { error ? <QuizError className="mt-3"/> : <Quiz
             actions={boundActions}
             levels={levels}
             isSounds={isSounds}
-          />
+          /> }
         </div>
       </CSSTransition>
     );
