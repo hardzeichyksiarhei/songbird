@@ -92,6 +92,7 @@ class Quiz extends React.Component {
     this.setAnswersAndQuestion({
       currentLevelIndex: 0,
       selectedAnswer: null,
+      score: 0,
       isSuccess: false,
       isGameOver: false
     })
