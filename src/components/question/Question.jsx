@@ -10,8 +10,8 @@ const Question = props => {
     useEffect( () => {
         const audio = player?.current?.audio.current;
 
-        if (audio && audio.src && props.isSuccess) audio.pause();
-    }, [] );
+        if (audio && audio.src && isSuccess) audio.pause();
+    }, [isSuccess] );
 
     return (
         <div className="question">
