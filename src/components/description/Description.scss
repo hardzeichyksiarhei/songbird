@@ -13,13 +13,14 @@
     padding: 0;
     list-style-type: none;
     li {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         &:last-of-type {
             margin-bottom: 0;
         }
         span {
             display: block;
             margin-bottom: 10px;
+            font-size: 14px;
         }
     }
     img {

@@ -10,11 +10,11 @@ const Answers = props => {
         props.onSelectAnswer(answer)
     }
 
-    const handlerChangeIsSounds = (event) => {
-        props.onChangeIsSounds(event.target.checked);
+    const handlerChangeIsSounds = _ => {
+        props.actions.toggleSounds();
     }
 
-    const selectAnswerClass = (answer) => {
+    const getAnswerClass = (answer) => {
         if (!answer.selected) return '';
         return props.question.id !== answer.id ? 'answers-list__item--error' : 'answers-list__item--success';
     }
@@ -30,7 +30,7 @@ const Answers = props => {
             </label>
             <ul className="answers-list">
                 {answers.map(answer => (
-                    <li className={`answers-list__item ${ selectAnswerClass(answer) }`} key={answer.id} onClick={() => handlerSelectAnswer(answer)}>
+                    <li className={`answers-list__item ${ getAnswerClass(answer) }`} key={answer.id} onClick={() => handlerSelectAnswer(answer)}>
                         <span className="mark"></span><span>{answer.name}</span>
                     </li>
                 ))}
