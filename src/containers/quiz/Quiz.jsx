@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Header from '../header/Header.jsx';
-import Question from '../question/Question.jsx';
-import Answers from '../answers/Answers.jsx';
-import Description from '../description/Description.jsx';
-import Gameover from '../gameover/Gameover.jsx';
+import Header from '../../components/header/Header.jsx';
+import Question from '../../components/question/Question.jsx';
+import Answers from '../../components/answers/Answers.jsx';
+import Description from '../../components/description/Description.jsx';
+import Gameover from '../../components/gameover/Gameover.jsx';
 
 import './Quiz.scss';
 

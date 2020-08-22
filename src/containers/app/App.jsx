@@ -1,14 +1,14 @@
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
 
-import Loader from './components/loader/Loader';
-import Quiz from './components/quiz/Quiz.jsx';
+import Loader from '../../components/loader/Loader';
+import Quiz from './../quiz/Quiz.jsx';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from "./store/actions";
+import * as actions from "../../store/actions";
 
-import { NUMBER_OF_LEVELS, NUMBER_OF_ANSWERS } from './config';
+import { NUMBER_OF_LEVELS, NUMBER_OF_ANSWERS } from '../../config';
 
 import './App.scss';
 
