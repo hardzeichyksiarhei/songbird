@@ -1,15 +1,15 @@
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
 
-import Loader from '../../components/loader/Loader';
-import Quiz from './../quiz/Quiz.jsx';
-import QuizError from './../../components/quiz-error/QuizError'
+import Loader from '../components/Loader/Loader';
+import Quiz from './Quiz/Quiz.jsx';
+import QuizError from '../components/QuizError/QuizError'
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from "../../store/actions";
+import * as actions from "../store/actions";
 
-import { NUMBER_OF_LEVELS, NUMBER_OF_ANSWERS } from '../../config';
+import { NUMBER_OF_LEVELS, NUMBER_OF_ANSWERS } from '../config';
 
 import './App.scss';
 
