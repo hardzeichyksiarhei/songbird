@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import AudioPlayer from 'react-h5-audio-player';
+import Blur from 'react-blur';
 
 import './Question.scss';
 
@@ -15,7 +16,7 @@ const Question = props => {
 
     return (
         <div className="question">
-            <img src={ isSuccess ? question.image : './bird.jpg' } alt="" className="question__img"/>
+            <Blur className="question__img" img={question?.image ?? ''} blurRadius={ isSuccess ? 0 : 30 } />
             <div className="question__content">
                 <h2 className="question__name">{ isSuccess ? question.name : '******' }</h2>
                 <AudioPlayer
