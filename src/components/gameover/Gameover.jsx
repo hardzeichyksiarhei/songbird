@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './GameOver.scss';
+import './Gameover.scss';
 
 class Gameover extends React.Component {
     constructor(props) {
