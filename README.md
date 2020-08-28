@@ -6,6 +6,7 @@
 * react
 * redux
 * redux-saga
+* node >= 14.6
 
 ## INSTRUCTION
 
