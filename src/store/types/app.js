@@ -1,0 +1,1 @@
+export const TOGGLE_SOUNDS = 'TOGGLE_SOUNDS';

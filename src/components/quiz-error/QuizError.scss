@@ -1,0 +1,20 @@
+.quiz-error {
+    background-color: #e53935;
+    border: 1px solid #ab000d;
+    padding: 30px;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+    &__title {
+        margin: 0;
+        font-size: 64px;
+        font-weight: 400;
+        border-bottom: 1px solid #fff;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+    }
+    &__message {
+        font-size: 22px;
+        margin-bottom: 0;
+    }
+}
