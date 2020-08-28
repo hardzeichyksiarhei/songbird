@@ -1,12 +1,10 @@
-
-
 # Songbird
 
 ## STACK
 * react
 * redux
 * redux-saga
-* node >= 14.6
+* node >= v.14.6
 
 ## INSTRUCTION
 
