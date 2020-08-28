@@ -4,7 +4,7 @@ import Header from '../../components/header/Header.jsx';
 import Question from '../../components/question/Question.jsx';
 import Answers from '../../components/answers/Answers.jsx';
 import Description from '../../components/description/Description.jsx';
-import Gameover from '../../components/gameover/GameOver.jsx';
+import Gameover from '../../components/gameover/Gameover.jsx';
 
 import './Quiz.scss';
 
