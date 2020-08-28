@@ -16,7 +16,7 @@ const Question = props => {
 
     return (
         <div className="question">
-            <Blur className="question__img" img={question?.image ?? ''} blurRadius={ isSuccess ? 0 : 30 } />
+            <Blur className="question__img" img={question?.image ?? ''} blurRadius={ isSuccess ? 0 : 50 } />
             <div className="question__content">
                 <h2 className="question__name">{ isSuccess ? question.name : '******' }</h2>
                 <AudioPlayer
